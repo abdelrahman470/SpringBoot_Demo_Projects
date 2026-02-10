@@ -1,10 +1,14 @@
 package com.cafe4code.thymeleafdemo.model;
 
+import java.util.List;
+
 public class Student {
 
     private String firstName;
     private String lastName;
     private String country;
+    private String favLang;
+    private List<String> favOs;
 
     public Student(){
 
@@ -32,5 +36,21 @@ public class Student {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getFavLang() {
+        return favLang;
+    }
+
+    public void setFavLang(String favLang) {
+        this.favLang = favLang;
+    }
+
+    public List<String> getFavOs() {
+        return favOs;
+    }
+
+    public void setFavOs(List<String> favOs) {
+        this.favOs = favOs;
     }
 }
