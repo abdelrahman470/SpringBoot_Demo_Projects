@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thymeleaf</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<form th:action="@{/form-validation}" th:object="${customer}" th:method="post">
+
+    first name :
+    <input type="text" th:field="*{firstName}">
+
+    <br><br>
+
+    last name <span class="error">(*)</span> :
+    <input type="text" th:field="*{lastName}">
+
+<!--  validation for lastName  -->
+    <span th:if="${#fields.hasErrors('lastName')}"
+          th:errors="*{lastName}"
+          th:class="error">
+    </span>
+
+    <br><br>
+
+    free passes:
+    <input type="text" th:field="*{freePasses}" />
+
+    <!--  validation for freePasses  -->
+    <span th:if="${#fields.hasErrors('freePasses')}"
+          th:errors="*{freePasses}"
+          th:class="error">
+    </span>
+
+    <br><br>
+
+    postal Code:
+    <input type="text" th:field="*{postalCode}" />
+
+    <!--  validation for postalCode  -->
+    <span th:if="${#fields.hasErrors('postalCode')}"
+          th:errors="*{postalCode}"
+          th:class="error">
+    </span>
+
+    <br><br>
+
+    course Code:
+    <input type="text" th:field="*{courseCode}" />
+
+    <!--  validation for courseCode  -->
+    <span th:if="${#fields.hasErrors('courseCode')}"
+          th:errors="*{courseCode}"
+          th:class="error">
+    </span>
+
+    <br><br>
+
+    <input type="submit" value="save">
+
+    <br><br>
+
+
+
+    <br><br>
+
+</form>
+
+</body>
+</html>
